@@ -8,7 +8,10 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: Color(0xFFF3F4F6),
       navigationBar: CupertinoNavigationBar(
+        border: Border(),
+        backgroundColor: CupertinoColors.white,
         middle: Text('Авторизация'),
       ),
       child: SafeArea(
@@ -17,13 +20,31 @@ class AuthScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            CupertinoTextField(
-              placeholder: 'Логин или почта',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: CupertinoTextField(
+                placeholder: 'Логин или почта',
+                decoration: BoxDecoration(
+                  color: CupertinoColors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+              ),
             ),
-            CupertinoTextField(
-              placeholder: 'Пароль',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CupertinoTextField(
+                placeholder: 'Пароль',
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: CupertinoColors.white,
+                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+              ),
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
@@ -32,7 +53,7 @@ class AuthScreen extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            SizedBox(height: 19),
+            SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
