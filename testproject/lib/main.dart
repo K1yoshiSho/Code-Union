@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/cupertino.dart';
+import 'package:testproject/src/screens/auth/register.dart';
 import 'src/screens/auth/auth_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      home: AuthScreen(),
+      home: RegisterScreen(),
     );
   }
 }
