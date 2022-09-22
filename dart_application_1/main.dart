@@ -1,44 +1,18 @@
+import 'dart:io';
+
 void main() {
-  final strategy = Strategy();
-  strategy.setAlgorithm(MagicAttacks.ice);
-  strategy.attack();
-  strategy.setAlgorithm(MagicAttacks.fire);
-  strategy.attack();
-}
-
-abstract class Magic {
-  void attack();
-}
-
-enum MagicAttacks {
-  fire,
-  ice,
-}
-
-class FireAttack implements Magic {
-  @override
-  void attack() => print('Fire! Woof, woof, woof... boom!');
-}
-
-class IceAttack implements Magic {
-  @override
-  void attack() => print('Ice! Vhh-vhh-vhh-vhh... poke!');
-}
-
-class Strategy {
-
-  MagicAttacks? algorithm;
-
-  Map<MagicAttacks, Magic> map = {
-    MagicAttacks.fire: FireAttack(),
-    MagicAttacks.ice: IceAttack(),
-  };
-
-  void setAlgorithm(MagicAttacks algorithm) {
-    this.algorithm = algorithm;
+  int x1 = 0, temp = 0, steps = 0;
+  print('Введите координаты фотографии. \n Координаты точки по Оси x:');
+  int x = int.parse(stdin.readLineSync()!);
+  print('Координаты точки по Оси y:');
+  int y = int.parse(stdin.readLineSync()!);
+  print(
+      'Если человек знает где находится фото: кол-во шагов - ${(y > 0) ? x + y : x - y}');
+  while (!(x == x1)) {
+    temp++;
+    (temp % 2 == 0) ? x1 = x1 - temp : x1 = x1 + temp;
+    steps = steps + temp;
   }
-
-  void attack() async {
-    map[algorithm]?.attack();
-  }
+  print(
+      'Если человек не знает где находится фото: кол-во шагов - ${(steps + y)}');
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -68,7 +69,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: CupertinoTextField(
                 placeholder: 'Повторите пароль',
                 obscureText: _isObscure,
-                suffix: Icon(CupertinoIcons.eye_slash_fill),
+                suffix: CupertinoButton(
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                    child: _isObscure
+                        ? Icon(
+                            CupertinoIcons.eye_solid,
+                            color: Colors.grey,
+                          )
+                        : Icon(
+                            CupertinoIcons.eye_slash_fill,
+                            color: Colors.grey,
+                          )),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: CupertinoColors.white,

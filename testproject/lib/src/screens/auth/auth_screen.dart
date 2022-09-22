@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/cupertino.dart';
+import 'package:testproject/src/screens/auth/register.dart';
+
+import '../../routes/routing_const.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -59,7 +62,9 @@ class AuthScreen extends StatelessWidget {
               child: CupertinoButton(
                 color: Color(0xFF4631D2),
                 child: Text('Зарегистрироваться'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RegisterRoute);
+                },
               ),
             ),
           ],
