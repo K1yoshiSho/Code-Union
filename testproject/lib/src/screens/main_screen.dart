@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'main/home_screen.dart';
+import 'main/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class MainScreen extends StatelessWidget {
               case 1:
                 return const HomeScreen();
               case 2:
-                return const HomeScreen();
+                return const ProfileScreen();
               case 3:
                 return const HomeScreen();
               default:

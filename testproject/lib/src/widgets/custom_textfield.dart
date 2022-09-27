@@ -7,13 +7,11 @@ class CustomTextField extends StatelessWidget {
     this.placeholder = 'Введите',
     this.suffix,
     this.obscureText = false,
-    this.decoration,
   }) : super(key: key);
 
   final String placeholder;
   final Widget? suffix;
   final bool obscureText;
-  final BoxDecoration? decoration;
 
   @override
   Widget build(BuildContext context) {
