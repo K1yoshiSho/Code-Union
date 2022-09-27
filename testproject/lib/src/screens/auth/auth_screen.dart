@@ -5,6 +5,7 @@ import 'package:testproject/src/theme/app_color.dart';
 import '../../routes/routing_const.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
+import 'package:dio/dio.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -41,7 +42,13 @@ class AuthScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CustomButton(
                 placeholder: "Войти",
-                onPressed: () {},
+                onPressed: () async {
+                  Dio dio = Dio();
+                  Response response = await dio.get(
+                    'https://web.codeunion.kz/',
+                  );
+                  print(response.data);
+                },
               ),
             ),
             SizedBox(height: 10),
