@@ -2,6 +2,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:testproject/src/widgets/custom_textfield.dart';
+
+import '../../routes/routing_const.dart';
+import '../../theme/app_color.dart';
+import '../../widgets/custom_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -15,10 +20,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: AppColors.scaffoldBackground,
       navigationBar: CupertinoNavigationBar(
         border: Border(),
-        backgroundColor: CupertinoColors.white,
+        backgroundColor: AppColors.white,
         middle: Text('Регистрация'),
       ),
       child: SafeArea(
@@ -29,44 +34,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: CupertinoTextField(
+              child: CustomTextField(
                 placeholder: 'Логин или почта',
-                decoration: BoxDecoration(
-                  color: CupertinoColors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: CupertinoTextField(
+              child: CustomTextField(
                 placeholder: 'Телефон',
-                decoration: BoxDecoration(
-                  color: CupertinoColors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: CupertinoTextField(
+              child: CustomTextField(
                 placeholder: 'Пароль',
-                obscureText: _isObscure,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: CupertinoColors.white,
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: CupertinoTextField(
+              child: CustomTextField(
                 placeholder: 'Повторите пароль',
                 obscureText: _isObscure,
                 suffix: CupertinoButton(
@@ -84,30 +70,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             CupertinoIcons.eye_slash_fill,
                             color: Colors.grey,
                           )),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: CupertinoColors.white,
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
               ),
             ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CupertinoButton(
-                color: Color(0xFF4631D2),
-                child: Text('Войти'),
-                onPressed: () {},
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CupertinoButton(
-                color: Color(0xFF4631D2),
-                child: Text('Зарегистрироваться'),
-                onPressed: () {},
+              child: CustomButton(
+                placeholder: 'Зарегистрироваться',
+                onPressed: () {
+                  Navigator.pushNamed(context, MainScreenRoute);
+                },
               ),
             ),
           ],

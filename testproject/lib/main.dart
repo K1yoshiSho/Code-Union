@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:testproject/src/screens/auth/register.dart';
 import 'src/routes/routing.dart';
 import 'src/screens/auth/auth_screen.dart';
+import 'src/theme/app_color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
         '/auth/login': (context) => AuthScreen(),
         '/auth/register': (context) => RegisterScreen(),
       },
+      theme: CupertinoThemeData(
+        scaffoldBackgroundColor: AppColors.scaffoldBackground,
+      ),
     );
   }
 }

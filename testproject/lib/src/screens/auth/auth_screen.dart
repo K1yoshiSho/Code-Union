@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/cupertino.dart';
-import 'package:testproject/src/screens/auth/register.dart';
-
+import 'package:testproject/src/theme/app_color.dart';
 import '../../routes/routing_const.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_textfield.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -11,10 +12,10 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: AppColors.scaffoldBackground,
       navigationBar: CupertinoNavigationBar(
         border: Border(),
-        backgroundColor: CupertinoColors.white,
+        backgroundColor: AppColors.white,
         middle: Text('Авторизация'),
       ),
       child: SafeArea(
@@ -25,43 +26,29 @@ class AuthScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child: CupertinoTextField(
-                placeholder: 'Логин или почта',
-                decoration: BoxDecoration(
-                  color: CupertinoColors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+              child: CustomTextField(
+                placeholder: "Логин",
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CupertinoTextField(
-                placeholder: 'Пароль',
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: CupertinoColors.white,
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+              child: CustomTextField(
+                placeholder: "Пароль",
               ),
             ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CupertinoButton(
-                color: Color(0xFF4631D2),
-                child: Text('Войти'),
+              child: CustomButton(
+                placeholder: "Войти",
                 onPressed: () {},
               ),
             ),
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CupertinoButton(
-                color: Color(0xFF4631D2),
-                child: Text('Зарегистрироваться'),
+              child: CustomButton(
+                placeholder: "Зарегистрироваться",
                 onPressed: () {
                   Navigator.pushNamed(context, RegisterRoute);
                 },
