@@ -1,12 +1,13 @@
+// Заменили MainRoute вместо '/' на '/main'
 // ignore_for_file: constant_identifier_names
 
-const String MainRoute = '/';
+const String MainRoute = '/main';
 
-const String AuthRoute = '/auth/login';
+// Сделали AuthRoute главным роутом
+const String AuthRoute = '/';
 const String RegisterRoute = '/auth/register';
 
-const String HomeRoute = '/main/home_screen';
-const String MainScreenRoute = 'main_screen';
+const String HomeRoute = '/restaurants';
 const String MapRoute = '/restaurants/map';
 const String FavouritesRoute = '/restaurants/favourites';
 const String SearchRoute = '/restaurants/search';

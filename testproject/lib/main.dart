@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:testproject/src/screens/auth/register.dart';
 import 'src/routes/routing.dart';
+import 'src/routes/routing_const.dart';
 import 'src/screens/auth/auth_screen.dart';
 import 'src/theme/app_color.dart';
 
@@ -16,15 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      home: AuthScreen(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      routes: {
-        '/auth/login': (context) => AuthScreen(),
-        '/auth/register': (context) => RegisterScreen(),
-      },
+      // Заменили параметр home на initialRoute
+      initialRoute: AuthRoute,
       theme: CupertinoThemeData(
         scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        barBackgroundColor: AppColors.white,
       ),
     );
   }

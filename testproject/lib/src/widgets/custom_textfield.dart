@@ -7,12 +7,13 @@ class CustomTextField extends StatelessWidget {
     this.placeholder = 'Введите',
     this.suffix,
     this.obscureText = false,
+    this.controller,
   }) : super(key: key);
 
   final String placeholder;
   final Widget? suffix;
   final bool obscureText;
-
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
@@ -24,6 +25,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
       suffix: suffix,
       obscureText: obscureText,
+      controller: controller,
     );
   }
 }

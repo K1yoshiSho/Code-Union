@@ -8,7 +8,10 @@ import '../../widgets/custom_textfield.dart';
 import 'package:dio/dio.dart';
 
 class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+  AuthScreen({super.key});
+  Dio dio = Dio();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +32,14 @@ class AuthScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: CustomTextField(
                 placeholder: "Логин",
+                controller: emailController,
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CustomTextField(
                 placeholder: "Пароль",
+                controller: passwordController,
               ),
             ),
             SizedBox(height: 20),
@@ -43,11 +48,37 @@ class AuthScreen extends StatelessWidget {
               child: CustomButton(
                 placeholder: "Войти",
                 onPressed: () async {
-                  Dio dio = Dio();
-                  Response response = await dio.get(
-                    'https://web.codeunion.kz/',
-                  );
-                  print(response.data);
+                  try {
+                    Response response = await dio.post(
+                      'http://188.225.83.80:6719/api/v1/auth/login',
+                      data: {
+                        'email': emailController.text,
+                        'password': passwordController.text,
+                      },
+                    );
+
+                    print(response.data['tokens']['accessToken']);
+                    Navigator.pushReplacementNamed(context, MainRoute);
+                  } on DioError catch (e) {
+                    print(e.response!.data);
+                    // Открываем модалку с сообщением ошибки
+                    showCupertinoModalPopup(
+                      context: context,
+                      builder: (context) {
+                        return CupertinoAlertDialog(
+                          title: Text('Ошибка'),
+                          content: Text('Неправильный логин или пароль!'),
+                          actions: [
+                            CupertinoButton(
+                              child: Text('ОК'),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    throw e;
+                  }
                 },
               ),
             ),

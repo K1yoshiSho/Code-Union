@@ -11,19 +11,19 @@ class AppRouter {
     switch (routeSettings.name) {
       case AuthRoute:
         return CupertinoPageRoute(
-          builder: (context) => const AuthScreen(),
+          builder: (context) => AuthScreen(),
         );
       case RegisterRoute:
         return CupertinoPageRoute(
-          builder: (context) => const RegisterScreen(),
+          builder: (context) => RegisterScreen(),
         );
-      case MainScreenRoute:
+      case MainRoute:
         return CupertinoPageRoute(builder: (context) => const MainScreen());
       case HomeRoute:
         return CupertinoPageRoute(builder: (context) => const HomeScreen());
       default:
         return CupertinoPageRoute(
-          builder: (context) => const AuthScreen(),
+          builder: (context) => AuthScreen(),
         );
     }
   }

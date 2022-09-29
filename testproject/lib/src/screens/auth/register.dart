@@ -78,7 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: CustomButton(
                 placeholder: 'Зарегистрироваться',
                 onPressed: () {
-                  Navigator.pushNamed(context, MainScreenRoute);
+                  Navigator.pushNamed(context, MainRoute);
                 },
               ),
             ),
